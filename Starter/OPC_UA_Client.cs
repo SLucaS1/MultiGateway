@@ -10,13 +10,20 @@ using Opc.Ua.Configuration;
 using Opc.Ua;
 using OPC_Client.Shared;
 using OPC_Client.Classi;
+using Starter.json;
 
 namespace Starter
 {
     internal class OPC_UA_Client
     {
-        Client client;
+        Client client; 
+        UPC_UA_Client_Config config;
         Dictionary<string, clsTag> TagDict = new();
+
+        public OPC_UA_Client(UPC_UA_Client_Config config)
+        {
+            this.config = config;
+        }
 
         public void Start()
         {
@@ -33,13 +40,13 @@ namespace Starter
             client.UpdateMissingTags += Client_UpdateMissingTags; ;
 
             ServerConfig serverConfigclient =new();
-            serverConfigclient.Address = "opc.tcp://Luca:53530/OPCUA/SimulationServer";
+            serverConfigclient.Address = config.Address;
             serverConfigclient.Name = "Server";
             serverConfigclient.spaceIndex =3;
 
-            //serverConfigclient.Username = "luca";
-            //serverConfigclient.Password = "luca";
-            //serverConfigclient.SecurityEnabled = true;
+            //serverConfigclient.Username = config.Username;
+            //serverConfigclient.Password = config.Password;
+            //serverConfigclient.SecurityEnabled = config.SecurityEnabled ;
 
             Dictionary<string, TagClass> taglist= new Dictionary<string, TagClass>();
             taglist.Add("AI001", new TagClass("AI001", "AI001", "Gruppo", 0, 100));

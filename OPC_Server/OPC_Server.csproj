@@ -7,11 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Quickstarts\**" />
+    <EmbeddedResource Remove="Quickstarts\**" />
+    <None Remove="Quickstarts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Client" Version="1.5.374.70" />
     <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Server" Version="1.5.374.70" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Quickstarts.EmptyServer.Config.xml">
+    <Reference Include="Opc.Ua.QuickstartsLibrary">
+      <HintPath>dll\Opc.Ua.QuickstartsLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="MyOPCUAServer.Config.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

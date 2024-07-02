@@ -29,18 +29,37 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace Quickstarts.EmptyServer
+namespace Quickstarts.DataAccessServer
 {
     /// <summary>
-    /// Defines constants for namespaces used by the application.
+    /// Defines the possible tag data types
     /// </summary>
-    public static partial class Namespaces
+    public enum UnderlyingSystemDataType
     {
         /// <summary>
-        /// The namespace for the nodes provided by the server.
+        /// A 1-byte integer value.
         /// </summary>
-        public const string Empty = "http://opcfoundation.org/Quickstarts/Empty";
+        Integer1 = 0,
+
+        /// <summary>
+        /// A 2-byte integer value.
+        /// </summary>
+        Integer2 = 1,
+
+        /// <summary>
+        /// A 4-byte integer value.
+        /// </summary>
+        Integer4 = 2,
+
+        /// <summary>
+        /// A 4-byte floating point value.
+        /// </summary>
+        Real4 = 3,
+
+        /// <summary>
+        /// A string value.
+        /// </summary>
+        String = 4
     }
 }

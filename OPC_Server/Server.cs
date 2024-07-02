@@ -1,25 +1,30 @@
 ﻿using System;
 using System.Threading;
+using System.Security.Cryptography.X509Certificates;
 using Opc.Ua;
-using Opc.Ua.Configuration;
 using Opc.Ua.Server;
-using static System.Net.Mime.MediaTypeNames;
+using Opc.Ua.Configuration;
+using Quickstarts.DataAccessServer;
 
 namespace OPC_Server
 {
     public class Server
     {
-        public void start()
+        public static void Main()
         {
+            Console.WriteLine("Starting OPC UA server...");
+            Task.Run(() => StartServer()).Wait();
+        }
 
-            //// Initialize the user interface.
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
 
-            //ApplicationInstance.MessageDlg = new ApplicationMessageDlg();
-            ApplicationInstance application = new ApplicationInstance();
-            application.ApplicationType = ApplicationType.Server;
-            application.ConfigSectionName = "Quickstarts.EmptyServer";
+        static async Task StartServer()
+        {
+            ApplicationInstance application = new ApplicationInstance
+            {
+                ApplicationName = "MyOPCUAServer",
+                ApplicationType = ApplicationType.Server,
+                ConfigSectionName = "MyOPCUAServer"
+            };
 
             try
             {
@@ -32,7 +37,7 @@ namespace OPC_Server
                 // check if running as a service.
                 if (!Environment.UserInteractive)
                 {
-                    application.StartAsService(new EmptyServer());
+                    application.StartAsService(new DataAccessServer());
                     return;
                 }
 
@@ -43,15 +48,20 @@ namespace OPC_Server
                 application.CheckApplicationInstanceCertificate(false, 0).Wait();
 
                 // start the server.
-                application.Start(new EmptyServer()).Wait();
+                application.Start(new DataAccessServer()).Wait();
 
+                // run the application interactively.
+                //Task.Run(new ServerForm(application));
+
+  
             }
             catch (Exception e)
             {
-                
+
                 return;
             }
         }
+
 
 
     }

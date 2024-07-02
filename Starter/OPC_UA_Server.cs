@@ -22,7 +22,7 @@ namespace Starter
 
         internal void Start()
         {
-            server.start();
+            Server.Main();
         }
     }
 

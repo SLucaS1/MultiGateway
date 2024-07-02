@@ -31,7 +31,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Quickstarts.EmptyServer
+namespace Quickstarts.DataAccessServer
 {
     /// <summary>
     /// Defines constants for namespaces used by the application.
@@ -41,6 +41,6 @@ namespace Quickstarts.EmptyServer
         /// <summary>
         /// The namespace for the nodes provided by the server.
         /// </summary>
-        public const string Empty = "http://opcfoundation.org/Quickstarts/Empty";
+        public const string DataAccess = "http://opcfoundation.org/Quickstarts/DataAccess";
     }
 }

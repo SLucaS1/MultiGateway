@@ -4,15 +4,15 @@ using Starter.json;
 using System.Text.Json;
 
 
-//ServerWeb.WebServer.Start(null);
+ServerWeb.WebServer.Start(null);
 
-
-
-
-OPC_UA_Client client = new OPC_UA_Client();
-//client.Start();
 OPC_UA_Server server = new OPC_UA_Server();
 server.Start();
+Thread.Sleep(500);
+
+OPC_UA_Client client = new OPC_UA_Client();
+client.Start();
+
 
 do
 {

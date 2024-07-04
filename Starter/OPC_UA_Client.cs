@@ -12,6 +12,7 @@ using OPC_Client.Shared;
 using OPC_Client.Classi;
 using Starter.json;
 using System.Text.Json;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Starter
 {
@@ -48,7 +49,7 @@ namespace Starter
             ServerConfig serverConfigclient =new();
             serverConfigclient.Address = config.Address;
             serverConfigclient.Name = "Server";
-            serverConfigclient.spaceIndex =3;
+            serverConfigclient.spaceIndex =2;
 
             //serverConfigclient.Username = config.Username;
             //serverConfigclient.Password = config.Password;
@@ -57,7 +58,9 @@ namespace Starter
             Dictionary<string, TagClass> taglist= new Dictionary<string, TagClass>();
             taglist.Add("AI001", new TagClass("AI001", "AI001", "Gruppo", 0, 100));
             taglist.Add("DI001", new TagClass("DI001", "DI001", "Gruppo", 0, 100));
-
+            taglist.Add("TEST?Input", new TagClass("TEST?Input", "TEST?Input", "Gruppo", 0, 100));
+            taglist.Add("1:TEST?Input", new TagClass("1:TEST?Input", "TEST?Input", "Gruppo", 0, 100));
+            taglist.Add("s=1:TEST?Input", new TagClass("s=1:TEST?Input", "s=1:TEST?Input", "Gruppo", 0, 100));
 
             //foreach (var i in OPCTags.Values)
             //    if (i.ServerID == serverConfig.Key)

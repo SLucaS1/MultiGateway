@@ -1,35 +1,3 @@
-/* ========================================================================
- * Copyright (c) 2005-2019 The OPC Foundation, Inc. All rights reserved.
- *
- * OPC Foundation MIT License 1.00
- * 
- * Permission is hereby granted, free of charge, to any person
- * obtaining a copy of this software and associated documentation
- * files (the "Software"), to deal in the Software without
- * restriction, including without limitation the rights to use,
- * copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the
- * Software is furnished to do so, subject to the following
- * conditions:
- * 
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
- * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
- * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
- * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
- * OTHER DEALINGS IN THE SOFTWARE.
- *
- * The complete license agreement can be found here:
- * http://opcfoundation.org/License/MIT/1.00/
- * ======================================================================*/
-
-using System;
-using System.Collections.Generic;
-using System.Threading;
 using Opc.Ua;
 
 namespace Quickstarts.DataAccessServer
@@ -126,7 +94,8 @@ namespace Quickstarts.DataAccessServer
             "TestData/Static/CC1001",
             "TestData/Static/FC2001",
             "TestData/Static/LC2001",
-            "TestData/Static/CC2001"
+            "TestData/Static/CC2001",
+            "TEST/TEST/TEST"
         };
 
         /// <summary>
@@ -151,8 +120,9 @@ namespace Quickstarts.DataAccessServer
             "LC1001/Controller",  
             "CC1001/CustomController",  
             "FC2001/Controller",  
-            "LC2001/Controller",  
-            "CC2001/CustomController"
+            "LC2001/Controller",
+            "CC2001/CustomController",
+            "TEST/AI"
         };
 
         /// <summary>
@@ -483,13 +453,21 @@ namespace Quickstarts.DataAccessServer
                     }
 
                     case "CustomController":
-                    {
-                        block.CreateTag("Input1", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null, true);
-                        block.CreateTag("Input2", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null, true);
-                        block.CreateTag("Input3", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null, true);
-                        block.CreateTag("Output", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null, false);
-                        break;
-                    }
+                        {
+                            block.CreateTag("Input1", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null, true);
+                            block.CreateTag("Input2", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null, true);
+                            block.CreateTag("Input3", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null, true);
+                            block.CreateTag("Output", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null, false);
+                            break;
+                        }
+                    case "AI":
+                        {
+                            block.CreateTag("Input", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Analog, null, true);
+                            block.CreateTag("Alarm", UnderlyingSystemDataType.Integer1, UnderlyingSystemTagType.Normal, null, true);
+                            block.CreateTag("Digital", UnderlyingSystemDataType.String, UnderlyingSystemTagType.Digital, null, true);
+                            block.CreateTag("Unit", UnderlyingSystemDataType.String, UnderlyingSystemTagType.Normal, null, true);
+                            break;
+                        }
                 }
             }
 

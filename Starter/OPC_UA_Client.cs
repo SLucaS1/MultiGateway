@@ -11,6 +11,7 @@ using Opc.Ua;
 using OPC_Client.Shared;
 using OPC_Client.Classi;
 using Starter.json;
+using System.Text.Json;
 
 namespace Starter
 {
@@ -20,8 +21,13 @@ namespace Starter
         UPC_UA_Client_Config config;
         Dictionary<string, clsTag> TagDict = new();
 
-        public OPC_UA_Client(UPC_UA_Client_Config config)
+        public OPC_UA_Client()
         {
+            string filePath = "config/OPC_US_Client.json";
+            string jsonString = File.ReadAllText(filePath);
+            UPC_UA_Client_Config config = JsonSerializer.Deserialize<UPC_UA_Client_Config>(jsonString);
+
+
             this.config = config;
         }
 

@@ -1,0 +1,37 @@
+{
+  "Address1": "opc.tcp://Luca:53530/OPCUA/SimulationServer",
+  "Address": "opc.tcp://luca:62548/Quickstarts/DataAccessServer",
+  "Username": "luca",
+  "Password": "luca",
+  "SecurityEnabled": true,
+  "Ttypes": [
+
+  ],
+  "Objs": [
+    {
+      "path": "Simulation/Prova1",
+      "Tags": [
+        {
+          "Name": "TAG1",
+          "Type": "AI"
+        }
+      ]
+    },
+    {
+      "path": "Simulation/Prova2",
+      "Tags": []
+    },
+    {
+      "path": "Simulation/Prova3",
+      "Tags": []
+    },
+    {
+      "path": "Simulation/Prova4",
+      "Tags": []
+    },
+    {
+      "path": "Simulation/Prova5",
+      "Tags": []
+    }
+  ]
+}

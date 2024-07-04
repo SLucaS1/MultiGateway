@@ -14,6 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="config\OPC_US_Server.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="config\OPC_US_Client.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

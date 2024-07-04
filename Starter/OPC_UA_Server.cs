@@ -8,6 +8,8 @@ using System.Xml.Linq;
 using System.Net;
 using Opc.Ua.Configuration;
 using Opc.Ua;
+using Starter.json;
+using System.Text.Json;
 
 namespace Starter
 {
@@ -17,12 +19,18 @@ namespace Starter
 
         public OPC_UA_Server()
         {
+            string filePath = "config/OPC_US_Server.json";
+            string jsonString = File.ReadAllText(filePath);
+            UPC_UA_Server_Config config = JsonSerializer.Deserialize<UPC_UA_Server_Config>(jsonString);
+
+
+
             server = new Server();
         }
 
         internal void Start()
         {
-            Server.Main();
+            Server.Main ();
         }
     }
 

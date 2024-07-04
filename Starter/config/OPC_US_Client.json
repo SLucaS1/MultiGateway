@@ -2,6 +2,5 @@
   "Address1": "opc.tcp://Luca:53530/OPCUA/SimulationServer",
   "Address": "opc.tcp://luca:62548/Quickstarts/DataAccessServer",
   "Username": "luca",
-  "Password": "luca",
-  "SecurityEnabled": true
+  "Password": "luca"
 }

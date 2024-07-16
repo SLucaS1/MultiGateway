@@ -1,6 +1,5 @@
 <template>
   <div class="main-page">
-    <p>OPC Client</p>
     <Fieldset legend="OPC Client" :toggleable="true">
       <div class="container">
         <div class="row">
@@ -33,24 +32,25 @@
 
 
         <Column style="width: 10rem">
-        <template #body="{ data, frozenRow, index }">
-          <div class="flex flex-wrap gap-2">
-            <Button type="button" icon="pi pi-trash" severity="danger" size="small"  text raised @click="deleteTag(data, frozenRow, index)"/>
-          </div>
-        </template>
-    </Column>
+          <template #body="{ data, frozenRow, index }">
+            <div class="flex flex-wrap gap-2">
+              <Button type="button" icon="pi pi-trash" severity="danger" size="small" text raised
+                @click="deleteTag(data, frozenRow, index)" />
+            </div>
+          </template>
+        </Column>
       </DataTable>
     </Fieldset>
 
     <Fieldset legend="Tree" :toggleable="true" class="treegrid">
       <TreeTable :value="tree" tableStyle="min-width: 50rem">
         <Column field="displayName" header="DisplayName" expander style="width: 30%"></Column>
-        <Column field="browseName" header="BrowseName" ></Column>
-        <Column field="nodeClass" header="NodeClass" ></Column>
-        <Column field="nodeId" header="NodeId" ></Column>
-        <Column field="identifier" header="Identifier" ></Column>
-        <Column field="namespaceIndex" header="NamespaceIndex" ></Column>
-        <Column field="serverIndex" header="ServerIndex" ></Column>
+        <Column field="browseName" header="BrowseName"></Column>
+        <Column field="nodeClass" header="NodeClass"></Column>
+        <Column field="nodeId" header="NodeId"></Column>
+        <Column field="identifier" header="Identifier"></Column>
+        <Column field="namespaceIndex" header="NamespaceIndex"></Column>
+        <Column field="serverIndex" header="ServerIndex"></Column>
       </TreeTable>
 
 
@@ -92,11 +92,11 @@ export default {
 
     this.intervalId1 = setInterval(() => {
       this.loadStatus();
-    }, 10000); 
+    }, 10000);
 
     this.intervalId2 = setInterval(() => {
       this.loadTags();
-    }, 2000); 
+    }, 2000);
 
     this.loadStatus();
     this.loadTags();
@@ -105,8 +105,8 @@ export default {
 
   },
   beforeUnmount() {
-    clearInterval(this.intervalId1); 
-    clearInterval(this.intervalId2); 
+    clearInterval(this.intervalId1);
+    clearInterval(this.intervalId2);
   },
   methods: {
 
@@ -146,8 +146,7 @@ export default {
           }
         );
     },
-    deleteTag(data, frozenRow, index)
-    {
+    deleteTag(data, frozenRow, index) {
 
       console.log(data)
     }
@@ -161,16 +160,15 @@ export default {
   padding: 20px;
 }
 
-.treegrid{
-  --p-treetable-body-cell-padding:0px;
+.treegrid {
+  --p-treetable-body-cell-padding: 0px;
 }
 
-.tablegrid{
-  --p-datatable-body-cell-padding:0px;
+.tablegrid {
+  --p-datatable-body-cell-padding: 0px;
 }
 
-.fieldset{
+.fieldset {
   --p-fieldset-legend-padding: 0px;
 }
-
 </style>

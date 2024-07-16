@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using OPC_Client.Shared;
 using OPC_Client.Classi;
+using OPC_Client.Shared;
 
 
 namespace ServerWeb.Controllers
@@ -17,6 +17,9 @@ namespace ServerWeb.Controllers
         {
             //_logger = logger;
         }
+
+
+
 
         [HttpGet("tree")]
         public clsTree[] GetTree()
@@ -36,5 +39,29 @@ namespace ServerWeb.Controllers
         {
             return Shared_Vars.Tags;
         }
+
+        [HttpPost("PostCommand")]
+        public void PostCommand(string command, string args = null)
+        {
+            switch (command.ToLower())
+            {
+                case "start":
+                    break;
+                case "stop":
+                    break;
+                case "addsubscribe":
+                    break;
+                case "removesubscribe":
+                    break;
+                case "write":
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+
+
     }
 }

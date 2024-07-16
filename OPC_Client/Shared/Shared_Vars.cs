@@ -14,5 +14,8 @@ namespace OPC_Client.Shared
 
         public static Classi.clsTag[] Tags = [];
 
+
+        public event LogEventHandler LogEvent;
+        public delegate void LogEventHandler(object sender, string message);
     }
 }

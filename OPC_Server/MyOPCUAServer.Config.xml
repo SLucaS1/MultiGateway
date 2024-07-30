@@ -5,7 +5,7 @@
   xmlns="http://opcfoundation.org/UA/SDK/Configuration.xsd"
 >
     <ApplicationName>Quickstart DataAccess Server</ApplicationName>
-    <ApplicationUri>urn:localhost:UA:DataAccessServer</ApplicationUri>
+    <ApplicationUri>urn:localhost:UA:DataAccessServer1111</ApplicationUri>
     <ProductUri>http://opcfoundation.org/UA/DataAccessServer</ProductUri>
     <ApplicationType>Server_0</ApplicationType>
 
@@ -52,7 +52,7 @@
     <ServerConfiguration>
         <BaseAddresses>
             <ua:String>https://localhost:62547/Quickstarts/DataAccessServer</ua:String>
-            <ua:String>opc.tcp://localhost:62548/Quickstarts/DataAccessServer</ua:String>
+            <ua:String>opc.tcp://localhost:62548/Quickstarts/DataAccessServer122</ua:String>
         </BaseAddresses>
         <SecurityPolicies>
             <ServerSecurityPolicy>

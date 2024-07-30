@@ -25,7 +25,7 @@ namespace Starter
 
 
 
-            server = new Server();
+            Server.Address = config.Address;
         }
 
         internal void Start()
